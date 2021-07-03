@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
+    marginTop: "20px",
+    marginBottom: "20px",
   },
   mobile: {
     [theme.breakpoints.down("sm")]: {

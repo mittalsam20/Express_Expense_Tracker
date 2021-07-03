@@ -44,7 +44,7 @@ const Main = () => {
         <CardHeader title="Expense Tracker" subheader="Made By Samaksh" />
         <CardContent>
           <Typography variant="h5" align="center">
-            Total Balance $${balance}
+            Total Balance ${balance}
           </Typography>
           <Typography
             variant="subtitle1"
