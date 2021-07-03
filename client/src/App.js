@@ -23,13 +23,13 @@ function App() {
         style={{ height: "100vh" }}
       >
         <Grid item xs={11} sm={4}>
-          <Details title="INCOME" />
+          <Details title="Income" />
         </Grid>
         <Grid item xs={11} sm={3}>
           <Main />
         </Grid>
         <Grid item xs={11} sm={4}>
-          <Details title="EXPENSE" />
+          <Details title="Expense" />
         </Grid>
       </Grid>
     </div>

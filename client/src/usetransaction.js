@@ -6,6 +6,7 @@ import { incomeCategories, expenseCategories, resetCategories } from "./constant
 const useTransactions = (title) => {
     resetCategories();
     const { transactions } = useContext(ExpenseTracker);
+    console.log("inside hooks", transactions, title);
     const transactionOfType = transactions.filter((t) => t.type === title)
     const total = transactionOfType.reduce((acc, currVal) => acc += currVal.amount, 0);
     const categories = (title === "Income" ? incomeCategories : expenseCategories);
@@ -14,9 +15,11 @@ const useTransactions = (title) => {
     transactionOfType.forEach((t) => {
         const category = categories.find((c) => c.type === t.category)
         if (category) {
-            category.aount += t.amount;
+            category.amount += t.amount;
         }
     })
+
+    // console.log("after foreach", category);
     const filteredCategories = categories.filter((c) => c.amount > 0);
     const chartData = {
         datasets: [{
@@ -27,7 +30,7 @@ const useTransactions = (title) => {
     }
 
 
-    return { filteredCategories, total, chartData };
+    return { total, chartData };
 }
 
 export default useTransactions;
