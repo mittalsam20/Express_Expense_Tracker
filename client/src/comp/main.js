@@ -7,7 +7,8 @@ import {
   Divider,
   makeStyles,
 } from "@material-ui/core";
-
+import Form from "./form";
+import List from "./list";
 const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
@@ -45,15 +46,15 @@ const Main = () => {
             variant="subtitle1"
             style={{ lineHeight: "1.5em", marginTop: "20px" }}
           >
-            "speechly kA CONTENT"
+            "Speechly Ka Content"
           </Typography>
           <Divider />
-          "form"
+          <Form />
         </CardContent>
         <CardContent className={classes.cardContent}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              {/* list  */}
+              <List />{" "}
             </Grid>
           </Grid>
         </CardContent>

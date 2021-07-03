@@ -22,13 +22,13 @@ function App() {
         justify="space-evenly"
         style={{ height: "100vh" }}
       >
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={11} sm={4}>
           <Details title="INCOME" />
         </Grid>
-        <Grid item xs={12} sm={3}>
+        <Grid item xs={11} sm={3}>
           <Main />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={11} sm={4}>
           <Details title="EXPENSE" />
         </Grid>
       </Grid>
