@@ -1,8 +1,18 @@
 import { Snackbar } from "@material-ui/core";
 import MUIAlert from "@material-ui/lab/Alert";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 const Alert = ({ open, setOpen }) => {
-  // const classes = useStyles();
+  const classes = useStyles();
   const handleClose = (event, reason) => {
     if (reason === "clickaway") return;
     setOpen(false);
@@ -10,8 +20,7 @@ const Alert = ({ open, setOpen }) => {
 
   return (
     <>
-      {/* <div className={classes.root}> */}
-      <div>
+      <div className={classes.root}>
         <Snackbar
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           open={open}

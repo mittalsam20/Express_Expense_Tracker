@@ -16,7 +16,17 @@ import { incomeCategories, expenseCategories } from "../constants/categories";
 import formatDate from "../utils/formatdate";
 import { useSpeechContext } from "@speechly/react-client";
 import Alert from "./alert";
-const useStyles = makeStyles(() => {});
+
+const useStyles = makeStyles(() => ({
+  radioGroup: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "-10px",
+  },
+  button: {
+    marginTop: "20px",
+  },
+}));
 
 const initialState = {
   amount: "",
@@ -24,6 +34,7 @@ const initialState = {
   type: "Income",
   date: formatDate(new Date()),
 };
+
 const Form = () => {
   const classes = useStyles();
   const [formData, setFormData] = useState(initialState);
@@ -100,6 +111,7 @@ const Form = () => {
 
   const selectedCat =
     formData.type === "Income" ? incomeCategories : expenseCategories;
+
   return (
     <>
       <Grid container spacing={2}>
@@ -169,7 +181,9 @@ const Form = () => {
           variant="outlined"
           color="primary"
           fullWidth
-          onClick={createTransaction()}
+          onClick={() => {
+            createTransaction();
+          }}
         >
           Create
         </Button>

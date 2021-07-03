@@ -17,6 +17,7 @@ export const Provider = ({ children }) => {
   const balance = transactions.reduce((acc, curr) => {
     return curr.type === "Expense" ? acc - curr.amount : acc + curr.amount;
   }, 0);
+
   return (
     <>
       <ExpenseTracker.Provider

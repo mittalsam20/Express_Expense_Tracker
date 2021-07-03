@@ -6,19 +6,37 @@ import {
   PushToTalkButton,
   ErrorPanel,
 } from "@speechly/react-ui";
-import {
-  SpeechState,
-  useSpeechContext,
-  UseSpeechContext,
-} from "@speechly/react-client";
+import { SpeechState, useSpeechContext } from "@speechly/react-client";
 import Main from "./comp/main";
+
 import { useEffect, useRef } from "react";
-const useStyles = makeStyles(() => ({
-  income: {
-    borderBottom: "10px solid rgba(0,255,0,,0.5)",
+
+const useStyles = makeStyles((theme) => ({
+  desktop: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
   },
-  expense: {
-    borderBottom: "10px solid rgba(255,0,0,,0.5)",
+  mobile: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  main: {
+    [theme.breakpoints.up("sm")]: {
+      paddingBottom: "5%",
+    },
+  },
+  last: {
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(3),
+      paddingBottom: "200px",
+    },
+  },
+  grid: {
+    "& > *": {
+      margin: theme.spacing(2),
+    },
   },
 }));
 
