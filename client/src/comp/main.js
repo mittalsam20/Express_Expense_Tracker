@@ -11,6 +11,7 @@ import Form from "./form";
 import List from "./list";
 import { useContext } from "react";
 import { ExpenseTracker } from "../context/context";
+import InfoCard from "./infocard";
 const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
@@ -49,9 +50,9 @@ const Main = () => {
             variant="subtitle1"
             style={{ lineHeight: "1.5em", marginTop: "20px" }}
           >
-            "Speechly Ka Content"
+            <InfoCard />
           </Typography>
-          <Divider />
+          <Divider className={classes.divider} />
           <Form />
         </CardContent>
         <CardContent className={classes.cardContent}>

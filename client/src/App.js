@@ -6,7 +6,13 @@ import {
   PushToTalkButton,
   ErrorPanel,
 } from "@speechly/react-ui";
+import {
+  SpeechState,
+  useSpeechContext,
+  UseSpeechContext,
+} from "@speechly/react-client";
 import Main from "./comp/main";
+import { useEffect, useRef } from "react";
 const useStyles = makeStyles(() => ({
   income: {
     borderBottom: "10px solid rgba(0,255,0,,0.5)",
@@ -17,6 +23,18 @@ const useStyles = makeStyles(() => ({
 }));
 
 function App() {
+  const { speechState } = useSpeechContext();
+  const main = useRef(null);
+  const executeScroll = () => {
+    main.current.scrollIntoView();
+  };
+
+  useEffect(() => {
+    if (speechState === SpeechState.Recording) {
+      executeScroll();
+    }
+  }, [speechState]);
+
   const classes = useStyles();
   return (
     <div>
@@ -27,13 +45,16 @@ function App() {
         justify="space-evenly"
         style={{ height: "100vh" }}
       >
-        <Grid item xs={11} sm={4}>
+        <Grid item xs={11} sm={4} className={classes.mobile}>
           <Details title="Income" />
         </Grid>
-        <Grid item xs={11} sm={3}>
+        <Grid ref={main} item xs={11} sm={3} className={classes.main}>
           <Main />
         </Grid>
-        <Grid item xs={11} sm={4}>
+        <Grid item xs={11} sm={4} className={classes.desktop}>
+          <Details title="Income" />
+        </Grid>
+        <Grid item xs={11} sm={4} className={classes.last}>
           <Details title="Expense" />
         </Grid>
       </Grid>
