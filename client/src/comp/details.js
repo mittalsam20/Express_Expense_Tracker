@@ -5,8 +5,8 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
-// import { Doughnut } from "react-chartjs-2";
-
+import { Doughnut } from "react-chartjs-2";
+import useTransactions from "../usetransaction";
 const useStyles = makeStyles(() => ({
   income: {
     borderBottom: "10px solid rgba(0,255,0,0.5)",
