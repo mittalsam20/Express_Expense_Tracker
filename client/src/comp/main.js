@@ -9,6 +9,8 @@ import {
 } from "@material-ui/core";
 import Form from "./form";
 import List from "./list";
+import { useContext } from "react";
+import { ExpenseTracker } from "../context/context";
 const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Main = () => {
+  const { balance } = useContext(ExpenseTracker);
   const classes = useStyles();
   return (
     <div>
@@ -40,7 +43,7 @@ const Main = () => {
         <CardHeader title="Expense Tracker" subheader="Made By Samaksh" />
         <CardContent>
           <Typography variant="h5" align="center">
-            Total Balance $100k
+            Total Balance $${balance}
           </Typography>
           <Typography
             variant="subtitle1"

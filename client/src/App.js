@@ -1,6 +1,11 @@
 import "./App.css";
 import Details from "./comp/details";
 import { Grid, makeStyles } from "@material-ui/core";
+import {
+  PushToTalkButtonContainer,
+  PushToTalkButton,
+  ErrorPanel,
+} from "@speechly/react-ui";
 import Main from "./comp/main";
 const useStyles = makeStyles(() => ({
   income: {
@@ -32,6 +37,10 @@ function App() {
           <Details title="Expense" />
         </Grid>
       </Grid>
+      <PushToTalkButtonContainer>
+        <PushToTalkButton />
+        <ErrorPanel />
+      </PushToTalkButtonContainer>
     </div>
   );
 }
