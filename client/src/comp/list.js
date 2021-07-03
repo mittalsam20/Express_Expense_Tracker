@@ -11,11 +11,15 @@ import {
 } from "@material-ui/core";
 
 import { Delete, MoneyOff } from "@material-ui/icons";
+import { useContext } from "react";
+import { ExpenseTracker } from "../context/context";
 
 const useStyles = makeStyles(() => {});
 
 const List = () => {
   const classes = useStyles();
+  const { delTransaction } = useContext(ExpenseTracker);
+
   const transactions = [
     {
       id: 1,
@@ -43,7 +47,7 @@ const List = () => {
                 className={
                   transaction.type === "income"
                     ? classes.avatarIncome
-                    : classes.avatar.Expense
+                    : classes.avatarExpense
                 }
               >
                 <MoneyOff />
