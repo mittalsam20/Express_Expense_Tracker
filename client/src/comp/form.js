@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { useState, useContext } from "react";
 import { ExpenseTracker } from "../context/context";
+import { v4 as uuidv4 } from "uuid";
 const useStyles = makeStyles(() => {});
 
 const initialState = {
@@ -88,7 +89,16 @@ const Form = () => {
           variant="outlined"
           color="primary"
           fullWidth
-          onClick={addTransaction}
+          onClick={() => {
+            const transaction = {
+              ...formData,
+              amount: Number(formData.amount),
+              id: uuidv4(),
+            };
+            addTransaction(transaction);
+            console.log(transaction);
+            setFormData(initialState);
+          }}
         >
           Create
         </Button>

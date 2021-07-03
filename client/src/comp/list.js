@@ -18,24 +18,14 @@ const useStyles = makeStyles(() => {});
 
 const List = () => {
   const classes = useStyles();
-  const { delTransaction } = useContext(ExpenseTracker);
-
-  const transactions = [
-    {
-      id: 1,
-      type: "Income",
-      category: "salary",
-      amount: "50",
-      date: new Date(),
-    },
-  ];
+  const { delTransaction, transactions } = useContext(ExpenseTracker);
 
   return (
     <>
       <MUIList dense={false} className={classes.list}></MUIList>
       {transactions.map((transaction) => (
         <Slide
-          direction="down"
+          direction="up"
           in
           mountOnEnter
           unmountOnExit
@@ -58,7 +48,13 @@ const List = () => {
               secondary={`$ ${transaction.amount} - ${transaction.date}`}
             />
             <ListItemSecondaryAction>
-              <IconButton edge="end" aria-label="delete">
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={() => {
+                  delTransaction(transaction.id);
+                }}
+              >
                 <Delete />
               </IconButton>
             </ListItemSecondaryAction>

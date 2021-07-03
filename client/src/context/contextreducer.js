@@ -1,16 +1,14 @@
 const contextReducer = (state, action) => {
     let transactions;
     switch (action.type) {
-        case 'delTRANSACTION':
-            transactions = state.filter((ele) => ele.id === action.payload)
+        case 'DELETE_TRANSACTION':
+            transactions = state.filter((ele) => ele.id !== action.payload)
             return transactions;
-        case 'addTRANSACTION':
+        case 'ADD_TRANSACTION':
             transactions = [action.payload, ...state]
             return transactions;
         default:
             return state;
     }
-
 }
-
 export default contextReducer;
