@@ -11,12 +11,12 @@ const useStyles = makeStyles(() => ({
   income: {
     borderBottom: "10px solid rgba(0,255,0,0,0.8)",
     borderTop: "10px solid rgba(0,255,0,0.8)",
-    maxHeight: "400px",
+    maxHeight: "500px",
   },
   expense: {
     borderBottom: "10px solid rgba(255,0,0,0.8)",
     borderTop: "10px solid rgba(255,0,0,0.8)",
-    maxHeight: "400px",
+    maxHeight: "500px",
   },
 }));
 
