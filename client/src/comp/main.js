@@ -41,9 +41,10 @@ const Main = () => {
   return (
     <div>
       <Card className={classes.root}>
-        <CardHeader title="Expense Tracker" subheader="Made By Samaksh" />
+        {/* subheader="Made By Samaksh" X */}
+        <CardHeader title="Expense Tracker" fontWeight="900" />
         <CardContent>
-          <Typography variant="h5" align="center">
+          <Typography variant="h5" align="center" fontWeight="900">
             Total Balance ${balance}
           </Typography>
           <Typography
