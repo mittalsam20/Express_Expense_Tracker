@@ -41,7 +41,7 @@ const Main = () => {
   return (
     <div>
       <Card className={classes.root}>
-        {/* subheader="Made By Samaksh" X */}
+        {/* subheader="Made By Samaksh"  */}
         <CardHeader title="Expense Tracker" fontWeight="900" />
         <CardContent>
           <Typography variant="h5" align="center" fontWeight="900">
@@ -59,7 +59,7 @@ const Main = () => {
         <CardContent className={classes.cardContent}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <List />{" "}
+              <List />
             </Grid>
           </Grid>
         </CardContent>
