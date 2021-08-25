@@ -107,6 +107,7 @@ const Form = () => {
         createTransaction();
       }
     }
+    // eslint-disable-next-line
   }, [segment]);
 
   const selectedCat =
