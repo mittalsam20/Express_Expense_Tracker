@@ -9,6 +9,7 @@ import {
   Select,
   MenuItem,
 } from "@material-ui/core";
+import axios from "axios";
 import { useState, useContext, useEffect } from "react";
 import { ExpenseTracker } from "../context/context";
 import { v4 as uuidv4 } from "uuid";
@@ -53,6 +54,21 @@ const Form = () => {
     addTransaction(transaction);
     console.log(transaction);
     setFormData(initialState);
+    const tr = {
+      type: formData.type,
+      name: formData.category,
+      amount: formData.amount,
+    };
+    console.log("this is tr", tr);
+    axios
+      .post(`http://localhost:5000/app/createtr`, tr)
+      .then(async (res) => {
+        console.log(res);
+        console.log("Transaction Recorded..!!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {

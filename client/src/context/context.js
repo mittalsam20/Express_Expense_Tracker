@@ -1,5 +1,13 @@
 import { createContext, useReducer } from "react";
 import contextReducer from "./contextreducer";
+import axios from "axios";
+
+const getall = async () => {
+  const alltrs = await axios.get("http://localhost:5000/app/gettr");
+  console.log(alltrs);
+  return alltrs;
+};
+
 const initialState = JSON.parse(localStorage.getItem("transactions")) || [];
 export const ExpenseTracker = createContext(initialState);
 
